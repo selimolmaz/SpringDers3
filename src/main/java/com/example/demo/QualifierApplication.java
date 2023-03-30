@@ -11,6 +11,7 @@ public class QualifierApplication {
 		SpringApplication.run(QualifierApplication.class, args);
 	}
 	
+	//Bean ile bizim olmayan classları da ioc'ye eklemek için yapıldı!
 	@Bean()
 	public WordFileReader getWordFileReader() {
 		return new WordFileReader();
