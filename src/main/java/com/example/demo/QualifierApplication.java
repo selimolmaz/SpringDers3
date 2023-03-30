@@ -12,6 +12,7 @@ public class QualifierApplication {
 	}
 	
 	//Bean ile bizim olmayan classları da ioc'ye eklemek için yapıldı!
+	//@Primary annotation buraya da eklenebilir!
 	@Bean()
 	public WordFileReader getWordFileReader() {
 		return new WordFileReader();

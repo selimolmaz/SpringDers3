@@ -12,13 +12,21 @@ public class MyController {
 	
 	//Burada Qualifier hangi classtan obje üretileceğini ve ioc'ye atacağını şaşırıyor 
 	//Bunu bildirmek için @Qualifier kullanıyoruz.
-	@Autowired
 	//@Qualifier("EXEL")
 	//@Qualifier("PDF")
-	@Qualifier("getWordFileReader")
+	//@Qualifier("getWordFileReader")
+	// Son olarak ise PDF class'ı için primary annotation ekledik ve 
+	// herhangi bir belirteç olmadan böyle bir durumda kullanılırsa default olarak kullanmasını istedik!
+	
+	@Autowired
 	private Reader reader;
+	
+	@Autowired
+	@Qualifier("getWordFileReader")
+	private Reader reader2;
+	
 	@GetMapping(path = "/read")
 	public String read() {
-		return this.reader.ReadFile();
+		return this.reader.ReadFile() + " - " + this.reader2.ReadFile();
 	}
 }
